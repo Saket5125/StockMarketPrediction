@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Prediction</title>
+    <style>
+        /* General reset and box model */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* Form styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 20px auto;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        form:hover {
+            transform: translateY(-5px);
+        }
+
+        form h3 {
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 300px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="file"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        /* Dropdown styling */
+        select {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 300px;
+            transition: border-color 0.3s ease;
+        }
+
+        select:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        hr {
+            margin: 30px 0;
+            border: 0;
+            border-top: 2px solid #ddd;
+        }
+
+        /* Prediction message styling */
+        h3.prediction-message {
+            text-align: center;
+            font-size: 1.2em;
+            color: #4CAF50;
+            margin-top: 30px;
+        }
+
+        h3.error-message {
+            text-align: center;
+            font-size: 1.2em;
+            color: #f44336;
+            margin-top: 30px;
+        }
+
+        /* Adding hover effect to the form */
+        form:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            form {
+                padding: 15px;
+            }
+
+            input[type="file"], select, button {
+                font-size: 0.9em;
+                max-width: 100%;
+            }
+
+            button {
+                padding: 8px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h3 {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Stock Price Prediction</h1>
+    
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <h3>Upload a CSV File</h3>
+        <input type="file" name="file" accept=".csv" required>
+        <button type="submit">Upload</button>
+    </form>
+    
+    {% if csv_files %}
+        <hr>
+        <h3>Select CSV for Prediction</h3>
+        <form method="POST" id="prediction-form">
+            <select name="csv_file" required>
+                <option value="" disabled selected>Select a CSV file</option>
+                {% for file in csv_files %}
+                    <option value="{{ file }}">{{ file }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Predict</button>
+        </form>
+    {% endif %}
+
+    {% if prediction is not none %}
+        <h3 class="prediction-message">Predicted Adj Close Value: {{ prediction }}</h3>
+    {% endif %}
+    
+    {% if message %}
+        <h3 class="error-message">{{ message }}</h3>
+    {% endif %}
+</body>
+</html>
