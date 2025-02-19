@@ -20,6 +20,7 @@ Ensure you have the following installed:
 Install the dependencies using:
 ```bash
 pip install -r requirements.txt
-![Screenshot 2025-02-15 115911](https://github.com/user-attachments/assets/2c28522b-cdca-4b80-8259-d1f1a0b34d35)
-![Screenshot 2025-02-15 120447](https://github.com/user-attachments/assets/a35b19ab-c35e-4ae4-8f3c-8a2c8e289e7f)
-![Screenshot 2025-02-15 120210](https://github.com/user-attachments/assets/2e6cf0a4-f91d-4000-a9cf-8e021db470ff)
+
+![Screenshot 2025-02-15 115911](https://github.com/user-attachments/assets/7e21896e-3310-4ddb-a2f5-3ad99f76d78e)
+![Screenshot 2025-02-15 120447](https://github.com/user-attachments/assets/1855beb5-ac96-45e9-9239-89039b1e0aaa)
+![Screenshot 2025-02-15 120210](https://github.com/user-attachments/assets/d334e4e6-293e-41a8-972d-3d96e7dd8de8)
