@@ -17,10 +17,9 @@ Ensure you have the following installed:
 - Pandas
 - Scikit-learn
 
-Install the dependencies using:
-```bash
-pip install -r requirements.txt
 
 ![Screenshot 2025-02-15 115911](https://github.com/user-attachments/assets/7e21896e-3310-4ddb-a2f5-3ad99f76d78e)
 ![Screenshot 2025-02-15 120447](https://github.com/user-attachments/assets/1855beb5-ac96-45e9-9239-89039b1e0aaa)
 ![Screenshot 2025-02-15 120210](https://github.com/user-attachments/assets/d334e4e6-293e-41a8-972d-3d96e7dd8de8)
+
+
